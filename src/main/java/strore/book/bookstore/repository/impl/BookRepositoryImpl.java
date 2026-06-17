@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
+import strore.book.bookstore.exception.DataProcessingException;
 import strore.book.bookstore.model.Book;
 import strore.book.bookstore.repository.BookRepository;
 
@@ -28,7 +29,7 @@ public class BookRepositoryImpl implements BookRepository {
             if (transaction != null) {
                 transaction.rollback();
             }
-            throw new RuntimeException("can't save book to db", e);
+            throw new DataProcessingException("can't save book to db", e);
         } finally {
             if (session != null) {
                 session.close();
@@ -41,6 +42,8 @@ public class BookRepositoryImpl implements BookRepository {
     public List findAll() {
         try (Session session = sessionFactory.openSession()) {
             return session.createQuery("from Book ", Book.class).getResultList();
+        } catch (Exception e) {
+            throw new DataProcessingException("can't find all books", e);
         }
     }
 }
