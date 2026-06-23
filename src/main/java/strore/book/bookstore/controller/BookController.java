@@ -16,7 +16,6 @@ import strore.book.bookstore.service.BookService;
 @RequestMapping("/books")
 @RequiredArgsConstructor
 public class BookController {
-
     private final BookService bookService;
 
     @GetMapping

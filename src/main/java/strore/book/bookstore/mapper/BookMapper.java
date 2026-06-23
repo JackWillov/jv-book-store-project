@@ -8,7 +8,6 @@ import strore.book.bookstore.model.Book;
 
 @Mapper(config = MapperConfig.class)
 public interface BookMapper {
-
     BookDto toBookDto(Book book);
 
     Book toBook(CreateBookRequestDto requestDto);

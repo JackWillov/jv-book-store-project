@@ -14,7 +14,6 @@ import strore.book.bookstore.service.BookService;
 @Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
-
     private final BookRepository bookRepository;
     private final BookMapper bookMapper;
 

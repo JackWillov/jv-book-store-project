@@ -14,7 +14,6 @@ import strore.book.bookstore.repository.BookRepository;
 @Repository
 @RequiredArgsConstructor
 public class BookRepositoryImpl implements BookRepository {
-
     private final SessionFactory sessionFactory;
 
     @Override

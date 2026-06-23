@@ -5,7 +5,6 @@ import java.util.Optional;
 import strore.book.bookstore.model.Book;
 
 public interface BookRepository {
-
     Book save(Book book);
 
     List<Book> findAll();
