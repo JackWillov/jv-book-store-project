@@ -1,11 +1,13 @@
 package strore.book.bookstore.service;
 
 import java.util.List;
-import strore.book.bookstore.model.Book;
+import strore.book.bookstore.dto.BookDto;
+import strore.book.bookstore.dto.CreateBookRequestDto;
 
 public interface BookService {
+    BookDto save(CreateBookRequestDto requestDto);
 
-    Book save(Book book);
+    List<BookDto> findAll();
 
-    List findAll();
+    BookDto findById(Long id);
 }
