@@ -1,6 +1,7 @@
 package strore.book.bookstore.mapper;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingTarget;
 import strore.book.bookstore.config.MapperConfig;
 import strore.book.bookstore.dto.BookDto;
 import strore.book.bookstore.dto.CreateBookRequestDto;
@@ -11,5 +12,7 @@ public interface BookMapper {
     BookDto toBookDto(Book book);
 
     Book toBook(CreateBookRequestDto requestDto);
+
+    Book updateBook(CreateBookRequestDto requestDto, @MappingTarget Book book);
 
 }
