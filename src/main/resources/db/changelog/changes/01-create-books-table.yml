@@ -37,6 +37,8 @@ databaseChangeLog:
               - column:
                   name: price
                   type: decimal(10,2)
+                  constraints:
+                    nullable: false
 
               - column:
                   name: description
