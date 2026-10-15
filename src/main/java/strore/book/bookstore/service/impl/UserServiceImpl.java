@@ -17,20 +17,12 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserResponseDto save(UserRegistrationRequestDto requestDto) {
+    public UserResponseDto register(UserRegistrationRequestDto requestDto)
+            throws RegistrationException {
         User user = userMapper.toUser(requestDto);
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new RegistrationException("User already exists");
+        }
         return userMapper.toUserResponseDto(userRepository.save(user));
-    }
-
-    @Override
-    public UserResponseDto findById(Long id) {
-        User user = userRepository.findById(id).orElseThrow(
-                () -> new RegistrationException("User with id " + id + " not found"));
-        return userMapper.toUserResponseDto(user);
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        userRepository.deleteById(id);
     }
 }

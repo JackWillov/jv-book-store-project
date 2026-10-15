@@ -2,11 +2,9 @@ package strore.book.bookstore.service;
 
 import strore.book.bookstore.dto.UserRegistrationRequestDto;
 import strore.book.bookstore.dto.UserResponseDto;
+import strore.book.bookstore.exception.RegistrationException;
 
 public interface UserService {
-    UserResponseDto save(UserRegistrationRequestDto requestDto);
+    UserResponseDto register(UserRegistrationRequestDto requestDto) throws RegistrationException;
 
-    UserResponseDto findById(Long id);
-
-    void deleteById(Long id);
 }
