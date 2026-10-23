@@ -21,7 +21,7 @@ import strore.book.bookstore.service.UserService;
 public class AuthenticationController {
     private final UserService userService;
 
-    @PostMapping(("/registration"))
+    @PostMapping("/registration")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Registration", description = "New user registration")
     public UserResponseDto register(@RequestBody @Valid UserRegistrationRequestDto request) {
